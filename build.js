@@ -38,8 +38,8 @@ function toIso(iso) {
   return new Date(iso + 'T00:00:00Z').toISOString();
 }
 
-// Date au format W3C strict pour les sitemaps Google Actualités (sans millisecondes).
-function newsDate(iso) {
+// Date au format W3C strict pour les sitemaps (sans millisecondes).
+function w3cDate(iso) {
   return new Date(iso + 'T00:00:00Z').toISOString().slice(0, 19) + 'Z';
 }
 
@@ -734,15 +734,15 @@ function copyAssets() {
 
 function sitemapXml() {
   const urls = [
-    { loc: SITE_URL + '/', lastmod: allPosts[0] ? toIso(allPosts[0].date) : '' },
+    { loc: SITE_URL + '/', lastmod: allPosts[0] ? w3cDate(allPosts[0].date) : '' },
     { loc: SITE_URL + '/articles/' },
     { loc: SITE_URL + '/annonces/' },
     { loc: SITE_URL + '/a-propos/' },
     { loc: SITE_URL + '/contact/' },
   ];
   categories.forEach((c) => urls.push({ loc: SITE_URL + '/categorie/' + categorySlug(c) + '/' }));
-  articles.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: toIso(a.date) }));
-  annonces.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: toIso(a.date) }));
+  articles.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: w3cDate(a.date) }));
+  annonces.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: w3cDate(a.date) }));
 
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map((u) => '  <url><loc>' + u.loc + '</loc>' + (u.lastmod ? '<lastmod>' + u.lastmod + '</lastmod>' : '') + '</url>').join('\n') +
@@ -753,7 +753,7 @@ function newsSitemapXml() {
   const items = recentArticles().map((a) => {
     return '  <url><loc>' + SITE_URL + postUrl(a) + '</loc>' +
       '<news:news><news:publication><news:name>' + e(site.name) + '</news:name><news:language>' + site.language + '</news:language></news:publication>' +
-      '<news:publication_date>' + newsDate(a.date) + '</news:publication_date>' +
+      '<news:publication_date>' + w3cDate(a.date) + '</news:publication_date>' +
       '<news:title>' + e(a.title) + '</news:title></news:news></url>';
   }).join('\n');
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n' + items + '\n</urlset>';
