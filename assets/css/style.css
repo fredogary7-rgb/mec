@@ -44,6 +44,10 @@
 /* --- Reset & base --------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Garantit que les éléments [hidden] restent bien masqués, même si une
+   autre règle leur donne un display (ex. .search-overlay -> display:grid). */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
