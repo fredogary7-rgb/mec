@@ -415,15 +415,21 @@ function socialEmbeds() {
   const tiktokHandle = (tiktokUrl.split('@').pop() || 'mec_calme0').replace(/\/+$/, '');
   const instagramUrl = site.social.instagram;
 
-  const tiktok = '<blockquote class="tiktok-embed" cite="' + tiktokUrl + '" data-unique-id="' + e(tiktokHandle) + '" data-embed-type="creator" style="max-width: 720px; min-width: 288px;"><section><a target="_blank" rel="noopener" href="' + tiktokUrl + '?refer=creator_embed">@' + e(tiktokHandle) + '</a></section></blockquote>';
+  const tiktokCard = '<div class="profile-card">' +
+    '<div class="profile-card-head"><span class="social-avatar">' + socialIcon('tiktok') + '</span><div><h4>@' + e(tiktokHandle) + '</h4><span class="muted">' + e(site.tagline) + '</span></div></div>' +
+    '<div class="stats">' +
+      '<div class="stat"><strong>' + e(site.stats.tiktokFollowers) + '</strong><span>abonnés</span></div>' +
+      '<div class="stat"><strong>' + e(site.stats.tiktokLikes) + '</strong><span>mentions J\'aime</span></div>' +
+    '</div>' +
+    '<a class="btn btn-primary" href="' + tiktokUrl + '" target="_blank" rel="noopener">Voir mon profil TikTok ' + SVG.arrow + '</a>' +
+  '</div>';
 
   const instagram = '<blockquote class="instagram-media" data-instgrm-permalink="' + instagramUrl + '" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;"><div style="padding:16px;"><a href="' + instagramUrl + '" target="_blank" rel="noopener" style="line-height:0;padding:0;margin:0;"><div style="display:flex;flex-direction:row;align-items:center;"><div style="background:#F4F4F4;border-radius:50%;height:40px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;margin-left:14px;"><div style="background:#F4F4F4;border-radius:4px;height:14px;width:100px;margin-bottom:6px;"></div><div style="background:#F4F4F4;border-radius:4px;height:14px;width:60px;"></div></div></div><div style="padding:19% 0;"></div></a><p style="margin:8px 0 0;padding:0 4px;"><a href="' + instagramUrl + '" target="_blank" rel="noopener" style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px;">Voir ce profil sur Instagram</a></p></div></blockquote>';
 
   return '<div class="embeds-grid">' +
-    '<div class="embed-card"><h3>TikTok</h3>' + tiktok + '</div>' +
+    '<div class="embed-card"><h3>TikTok</h3>' + tiktokCard + '</div>' +
     '<div class="embed-card"><h3>Instagram</h3>' + instagram + '</div>' +
     '</div>' +
-    '<script async src="https://www.tiktok.com/embed.js"></script>' +
     '<script async src="https://www.instagram.com/embed.js"></script>';
 }
 
