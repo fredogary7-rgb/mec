@@ -416,7 +416,17 @@ function socialEmbeds() {
   const instagramUrl = site.social.instagram;
   const instagramHandle = (instagramUrl.replace(/\/+$/, '').split('/').pop() || 'mec_calme0');
 
-  // TikTok : embed officiel du profil (stats + dernières vidéos)
+  // Carte TikTok fiable (s'affiche toujours, même sans l'embed)
+  const tiktokCard = '<div class="profile-card">' +
+    '<div class="profile-card-head"><span class="social-avatar">' + socialIcon('tiktok') + '</span><div><h4>@' + e(tiktokHandle) + '</h4><span class="muted">' + e(site.tagline) + '</span></div></div>' +
+    '<div class="stats">' +
+      '<div class="stat"><strong>' + e(site.stats.tiktokFollowers) + '</strong><span>abonnés</span></div>' +
+      '<div class="stat"><strong>' + e(site.stats.tiktokLikes) + '</strong><span>likes</span></div>' +
+    '</div>' +
+    '<a class="btn btn-primary" href="' + tiktokUrl + '" target="_blank" rel="noopener">Voir mon profil TikTok ' + SVG.arrow + '</a>' +
+  '</div>';
+
+  // TikTok : embed officiel (vidéos + stats, une fois la date de naissance réglée dans TikTok)
   const tiktokEmbed = '<blockquote class="tiktok-embed" cite="' + tiktokUrl + '" data-unique-id="' + e(tiktokHandle) + '" data-embed-type="creator" style="max-width: 720px; min-width: 288px;"><section><a target="_blank" rel="noopener" href="' + tiktokUrl + '?refer=creator_embed">@' + e(tiktokHandle) + '</a></section></blockquote>';
 
   // Instagram : carte simple avec bouton (s'affiche toujours)
@@ -426,7 +436,7 @@ function socialEmbeds() {
   '</div>';
 
   return '<div class="embeds-grid">' +
-    '<div class="embed-card"><h3>TikTok</h3>' + tiktokEmbed + '</div>' +
+    '<div class="embed-card"><h3>TikTok</h3>' + tiktokCard + tiktokEmbed + '</div>' +
     '<div class="embed-card"><h3>Instagram</h3>' + instagramCard + '</div>' +
     '</div>' +
     '<script async src="https://www.tiktok.com/embed.js"></script>';
