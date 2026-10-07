@@ -44,8 +44,10 @@ const SECURITY_HEADERS = {
     "img-src 'self' data: https:; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "font-src 'self' https://fonts.gstatic.com; " +
-    "script-src 'self' 'nonce-" + NONCE + "'; " +
-    "connect-src 'self'; base-uri 'self'; form-action 'self'",
+    "script-src 'self' 'nonce-" + NONCE + "' https://www.tiktok.com https://www.instagram.com; " +
+    "frame-src https://www.tiktok.com https://www.instagram.com; " +
+    "connect-src 'self' https://www.tiktok.com https://www.instagram.com; " +
+    "base-uri 'self'; form-action 'self'",
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 };
 

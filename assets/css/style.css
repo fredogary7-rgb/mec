@@ -479,6 +479,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .back-to-top svg { transform: rotate(-90deg); }
 .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
+/* --- Intégration réseaux sociaux (TikTok / Instagram) --------------------- */
+.section-sub { color: var(--muted); margin: -12px 0 24px; }
+.embeds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.embed-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; overflow: hidden;
+}
+.embed-card h3 { margin-bottom: 16px; }
+.embed-card .tiktok-embed, .embed-card .instagram-media { margin: 0 auto; max-width: 100%; }
+
 /* --- Accessibilité -------------------------------------------------------- */
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
@@ -493,6 +503,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-media { order: -1; }
+  .embeds-grid { grid-template-columns: 1fr; }
   .nav-toggle { display: inline-flex; }
   .main-nav {
     position: absolute; top: var(--header-h); left: 0; right: 0;
