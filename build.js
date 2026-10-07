@@ -38,6 +38,20 @@ function toIso(iso) {
   return new Date(iso + 'T00:00:00Z').toISOString();
 }
 
+// Date au format W3C strict pour les sitemaps Google Actualités (sans millisecondes).
+function newsDate(iso) {
+  return new Date(iso + 'T00:00:00Z').toISOString().slice(0, 19) + 'Z';
+}
+
+// Google Actualités n'accepte que les articles des 2 derniers jours.
+// En l'absence d'article récent, on conserve le plus récent pour éviter un sitemap vide.
+function recentArticles() {
+  const now = Date.now();
+  const twoDays = 2 * 24 * 60 * 60 * 1000;
+  const recent = articles.filter((a) => now - new Date(a.date + 'T00:00:00Z').getTime() <= twoDays);
+  return recent.length ? recent : articles.slice(0, 1);
+}
+
 function excerptFromHtml(html, len) {
   const text = String(html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   if (text.length <= len) return text;
@@ -736,10 +750,10 @@ function sitemapXml() {
 }
 
 function newsSitemapXml() {
-  const items = articles.map((a) => {
+  const items = recentArticles().map((a) => {
     return '  <url><loc>' + SITE_URL + postUrl(a) + '</loc>' +
       '<news:news><news:publication><news:name>' + e(site.name) + '</news:name><news:language>' + site.language + '</news:language></news:publication>' +
-      '<news:publication_date>' + toIso(a.date) + '</news:publication_date>' +
+      '<news:publication_date>' + newsDate(a.date) + '</news:publication_date>' +
       '<news:title>' + e(a.title) + '</news:title></news:news></url>';
   }).join('\n');
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n' + items + '\n</urlset>';
