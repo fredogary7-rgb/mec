@@ -1,0 +1,43 @@
+{
+  "name": "Mec Calme",
+  "stylizedName": "¥₵₳₱Ɽł₵ØⱤ₦Ɇ¥",
+  "tagline": "L'homme calme attire sans parler fort",
+  "slogan": "Confiance · Séduction subtile · Mindset",
+  "description": "Mec Calme est un média et créateur de contenu togolais basé à Lomé. Retrouvez des articles sur la confiance en soi, la séduction subtile, le mindset et le développement personnel.",
+  "location": "Lomé, Togo",
+  "country": "TG",
+  "locale": "fr_FR",
+  "language": "fr",
+  "website": "https://meccalme0.com",
+  "email": "contact@meccalme0.com",
+  "phone": "+228 71 33 93 25",
+  "whatsapp": "22871339325",
+  "birthsign": "Capricorne ♑️",
+  "founder": {
+    "name": "Mec Calme",
+    "stylizedName": "¥₵₳₱Ɽł₵ØⱤ₦Ɇ¥",
+    "role": "Créateur de contenu & fondateur",
+    "bio": "Créateur de contenu togolais basé à Lomé. Je partage des conseils concrets sur la confiance en soi, la séduction subtile et le mindset. Ma philosophie : l'homme calme attire sans parler fort."
+  },
+  "social": {
+    "tiktok": "https://www.tiktok.com/@mec_calme0",
+    "instagram": "https://www.instagram.com/mec_calme0/",
+    "youtube": "https://www.youtube.com/@mec_calme0",
+    "x": "https://x.com/mec_calme0",
+    "facebook": "https://www.facebook.com/mec_calme0",
+    "threads": "https://www.threads.net/@mec_calme0",
+    "snapchat": "https://www.snapchat.com/add/mec_calme0",
+    "linktree": "https://linktr.ee/mec_calme0"
+  },
+  "stats": {
+    "tiktokFollowers": "23,5K",
+    "tiktokLikes": "200,6K"
+  },
+  "nav": [
+    { "label": "Accueil", "href": "/" },
+    { "label": "Articles", "href": "/articles/" },
+    { "label": "Annonces", "href": "/annonces/" },
+    { "label": "À propos", "href": "/a-propos/" },
+    { "label": "Contact", "href": "/contact/" }
+  ]
+}
