@@ -751,7 +751,7 @@ function contactPage() {
 }
 
 function soutienPage() {
-  const paypalSdk = '<script src="https://www.paypal.com/sdk/js?client-id=BAAxzUhzOi6zXbs3gcQ-9QobiCgkGXJe0bZt8Adb4Pnn__lAeTOi3ElGEbq2Ba5AkyvjhcIRtKA8SFKbc8&amp;components=hosted-buttons&amp;disable-funding=venmo&amp;currency=USD"></script>';
+  const paypalSdk = '<script src="https://www.paypal.com/sdk/js?client-id=BAAxzUhzOi6zXbs3gcQ-9QobiCgkGXJe0bZt8Adb4Pnn__lAeTOi3ElGEbq2Ba5AkyvjhcIRtKA8SFKbc8&amp;components=hosted-buttons"></script>';
   const paypalButton = '<div id="paypal-container-Y54VTFCLXVBNN" class="paypal-container"></div>' +
     '<script nonce="' + NONCE + '">paypal.HostedButtons({ hostedButtonId: "Y54VTFCLXVBNN" }).render("#paypal-container-Y54VTFCLXVBNN");</script>';
 
