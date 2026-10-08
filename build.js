@@ -120,9 +120,8 @@ function organizationLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: site.name,
-    alternateName: site.stylizedName,
     url: SITE_URL,
-    logo: { '@type': 'ImageObject', url: absUrl('/assets/img/logo.svg') },
+    logo: { '@type': 'ImageObject', url: absUrl('/assets/img/logo.png') },
     slogan: site.tagline,
     founder: { '@type': 'Person', name: site.founder.name },
     address: { '@type': 'PostalAddress', addressLocality: 'Lomé', addressCountry: 'TG' },
@@ -150,7 +149,6 @@ function websiteLd() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: site.name,
-    alternateName: site.stylizedName,
     url: SITE_URL,
     inLanguage: site.language,
     publisher: { '@type': 'Organization', name: site.name, url: SITE_URL },
@@ -164,14 +162,14 @@ function articleLd(post, url) {
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     headline: post.title,
     description: post.description,
-    image: [absUrl(post.image || '/assets/img/og-default.svg')],
+    image: [absUrl(post.image || '/assets/img/og-default.png')],
     datePublished: toIso(post.date),
     dateModified: toIso(post.date),
     author: { '@type': 'Person', name: post.author, url: SITE_URL },
     publisher: {
       '@type': 'Organization',
       name: site.name,
-      logo: { '@type': 'ImageObject', url: absUrl('/assets/img/logo.svg') },
+      logo: { '@type': 'ImageObject', url: absUrl('/assets/img/logo.png') },
     },
     inLanguage: site.language,
     keywords: post.tags.join(', '),
@@ -221,7 +219,7 @@ function layout(opts) {
   const description = opts.description || site.description;
   const canonical = opts.canonical || SITE_URL + '/';
   const type = opts.type || 'website';
-  const image = absUrl(opts.image || '/assets/img/og-default.svg');
+  const image = absUrl(opts.image || '/assets/img/og-default.png');
   const fullTitle = opts.title ? opts.title + ' — ' + site.name : site.name + ' · ' + site.tagline;
   const jsonLdList = [organizationLd(), websiteLd()].concat(opts.jsonLd || []);
 
@@ -238,7 +236,9 @@ function layout(opts) {
 <meta name="theme-color" content="#0e1116">
 ${opts.keywords ? '<meta name="news_keywords" content="' + e(opts.keywords) + '">' : ''}
 <link rel="alternate" type="application/rss+xml" title="Mec Calme — Flux RSS" href="/rss.xml">
-<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.json">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="${e(site.name)}">
@@ -362,7 +362,7 @@ function postBadge(post) {
 
 function card(post) {
   const url = postUrl(post);
-  const img = post.image || '/assets/img/og-default.svg';
+  const img = post.image || '/assets/img/og-default.png';
   return `<article class="card">
     <a class="card-media" href="${url}" aria-hidden="true" tabindex="-1">
       <img src="${img}" alt="${e(post.title)}" loading="lazy">
@@ -379,7 +379,7 @@ function card(post) {
 
 function hero(post) {
   const url = postUrl(post);
-  const img = post.image || '/assets/img/og-default.svg';
+  const img = post.image || '/assets/img/og-default.png';
   return `<section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
@@ -527,7 +527,7 @@ function shareButtons(url, title) {
 function articlePage(post) {
   const url = postUrl(post);
   const absolute = absUrl(url);
-  const img = post.image || '/assets/img/og-default.svg';
+  const img = post.image || '/assets/img/og-default.png';
   const tagsHtml = post.tags.map((t) => '<span class="tag">#' + e(t) + '</span>').join('');
 
   let related = articles.filter((a) => a.slug !== post.slug && a.category === post.category);
@@ -640,7 +640,7 @@ function annoncePage(post) {
     description: post.description,
     canonical: absolute,
     type: 'article',
-    image: post.image || '/assets/img/og-default.svg',
+    image: post.image || '/assets/img/og-default.png',
     jsonLd: [articleLd(post, absolute)],
     keywords: 'annonce',
     active: '/annonces/',
@@ -819,7 +819,10 @@ function manifestJson() {
     background_color: '#0e1116',
     theme_color: '#0e1116',
     lang: site.language,
-    icons: [{ src: '/assets/img/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
+    icons: [
+      { src: '/assets/img/favicon.png', sizes: '48x48', type: 'image/png', purpose: 'any' },
+      { src: '/assets/img/apple-touch-icon.png', sizes: '180x180', type: 'image/png', purpose: 'any' },
+    ],
   };
 }
 
