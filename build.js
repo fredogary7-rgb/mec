@@ -773,15 +773,15 @@ function copyAssets() {
 
 function sitemapXml() {
   const urls = [
-    { loc: SITE_URL + '/', lastmod: allPosts[0] ? w3cDate(allPosts[0].date) : '' },
+    { loc: SITE_URL + '/', lastmod: allPosts[0] ? allPosts[0].date : '' },
     { loc: SITE_URL + '/articles/' },
     { loc: SITE_URL + '/annonces/' },
     { loc: SITE_URL + '/a-propos/' },
     { loc: SITE_URL + '/contact/' },
   ];
   categories.forEach((c) => urls.push({ loc: SITE_URL + '/categorie/' + categorySlug(c) + '/' }));
-  articles.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: w3cDate(a.date) }));
-  annonces.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: w3cDate(a.date) }));
+  articles.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: a.date }));
+  annonces.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: a.date }));
 
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map((u) => '  <url><loc>' + u.loc + '</loc>' + (u.lastmod ? '<lastmod>' + u.lastmod + '</lastmod>' : '') + '</url>').join('\n') +
