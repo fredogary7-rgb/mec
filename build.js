@@ -259,6 +259,7 @@ ${jsonLdList.map(jsonLd).join('\n')}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
+${swgScript()}
 </head>
 <body class="${opts.bodyClass || ''}">
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -347,6 +348,7 @@ function renderFooter() {
   </div>
   <div class="container footer-bottom">
     <p>© ${new Date().getFullYear()} ${e(site.name)}. Tous droits réservés.</p>
+    <p><a href="/conditions-utilisation/">Conditions d'utilisation</a> · <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
     <p>Fait avec calme à Lomé 🇹🇬</p>
   </div>
 </footer>`;
@@ -784,6 +786,62 @@ function soutienPage() {
   });
 }
 
+function swgScript() {
+  return `<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+<script>(self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => { basicSubscriptions.init({ type: "NewsArticle", isPartOfType: ["Product"], isPartOfProductId: "CAowlaXODA:openaccess", clientOptions: { theme: "light", lang: "fr" } }); });</script>`;
+}
+
+function termsPage() {
+  const content = pageHero("Conditions d'utilisation", '', [{ label: "Accueil", href: "/" }, { label: "Conditions d'utilisation" }]) +
+    `<section class="section"><div class="container article-container"><div class="article-body">
+      <p><em>Dernière mise à jour : 8 octobre 2026</em></p>
+      <h2>1. Présentation</h2>
+      <p>Le site <strong>meccalme0.com</strong> est édité par Mec Calme, créateur de contenu basé à Lomé (Togo). Il présente des articles et contenus sur la confiance en soi, la séduction subtile et le mindset.</p>
+      <h2>2. Contenu</h2>
+      <p>Les contenus publiés sont fournis à titre informatif et de divertissement. Ils ne constituent pas un conseil professionnel.</p>
+      <h2>3. Propriété intellectuelle</h2>
+      <p>Tous les contenus (textes, images, logos) sont la propriété de Mec Calme, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
+      <h2>4. Liens externes</h2>
+      <p>Le site peut contenir des liens vers des sites tiers. Mec Calme n'est pas responsable de leur contenu.</p>
+      <h2>5. Contact</h2>
+      <p>Pour toute question : <a href="mailto:${site.email}">${e(site.email)}</a></p>
+    </div></div></section>`;
+  return layout({
+    title: "Conditions d'utilisation",
+    description: "Conditions d'utilisation du site Mec Calme.",
+    canonical: absUrl("/conditions-utilisation/"),
+    active: "",
+    content,
+  });
+}
+
+function privacyPage() {
+  const content = pageHero("Politique de confidentialité", '', [{ label: "Accueil", href: "/" }, { label: "Politique de confidentialité" }]) +
+    `<section class="section"><div class="container article-container"><div class="article-body">
+      <p><em>Dernière mise à jour : 8 octobre 2026</em></p>
+      <h2>1. Données collectées</h2>
+      <p>Le site Mec Calme (meccalme0.com) ne collecte aucune donnée personnelle directement. Aucun formulaire ne stocke d'informations sur ce site.</p>
+      <h2>2. Services tiers</h2>
+      <p>Certains services tiers peuvent collecter des données lorsque vous les utilisez :</p>
+      <ul>
+        <li><strong>PayPal</strong> : lors d'un don sur la page Soutien (traitement du paiement).</li>
+        <li><strong>Google</strong> : pour l'affichage dans Google Actualités et la mesure d'audience.</li>
+        <li><strong>Réseaux sociaux</strong> : les intégrations TikTok et Instagram peuvent déposer des cookies.</li>
+      </ul>
+      <h2>3. Cookies</h2>
+      <p>Le site peut utiliser des cookies techniques (polices Google, intégrations sociales). Vous pouvez les désactiver dans votre navigateur.</p>
+      <h2>4. Contact</h2>
+      <p>Pour toute question sur vos données : <a href="mailto:${site.email}">${e(site.email)}</a></p>
+    </div></div></section>`;
+  return layout({
+    title: "Politique de confidentialité",
+    description: "Politique de confidentialité du site Mec Calme.",
+    canonical: absUrl("/politique-de-confidentialite/"),
+    active: "",
+    content,
+  });
+}
+
 function notFoundPage() {
   const content = `<section class="section">
     <div class="container notfound">
@@ -813,6 +871,8 @@ function sitemapXml() {
     { loc: SITE_URL + '/a-propos/' },
     { loc: SITE_URL + '/contact/' },
     { loc: SITE_URL + '/soutien/' },
+    { loc: SITE_URL + '/conditions-utilisation/' },
+    { loc: SITE_URL + '/politique-de-confidentialite/' },
   ];
   categories.forEach((c) => urls.push({ loc: SITE_URL + '/categorie/' + categorySlug(c) + '/' }));
   articles.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: a.date }));
@@ -888,6 +948,8 @@ function build() {
   writeFile('a-propos/index.html', aboutPage());
   writeFile('contact/index.html', contactPage());
   writeFile('soutien/index.html', soutienPage());
+  writeFile('conditions-utilisation/index.html', termsPage());
+  writeFile('politique-de-confidentialite/index.html', privacyPage());
   writeFile('404.html', notFoundPage());
 
   articles.forEach((a) => writeFile('articles/' + a.slug + '/index.html', articlePage(a)));

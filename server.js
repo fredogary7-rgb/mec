@@ -44,11 +44,11 @@ const SECURITY_HEADERS = {
     "img-src 'self' data: https:; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "font-src 'self' https://fonts.gstatic.com; " +
-    "script-src 'self' 'unsafe-inline' https://www.tiktok.com https://www.instagram.com https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com; " +
-    "frame-src https://www.tiktok.com https://www.instagram.com https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com; " +
-    "child-src https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com; " +
-    "worker-src https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com; " +
-    "connect-src 'self' https://www.tiktok.com https://www.instagram.com https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com; " +
+    "script-src 'self' 'unsafe-inline' https://www.tiktok.com https://www.instagram.com https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com https://news.google.com; " +
+    "frame-src https://www.tiktok.com https://www.instagram.com https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com https://news.google.com; " +
+    "child-src https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com https://news.google.com; " +
+    "worker-src https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com https://news.google.com; " +
+    "connect-src 'self' https://www.tiktok.com https://www.instagram.com https://www.paypal.com https://*.paypal.com https://www.paypalobjects.com https://*.paypalobjects.com https://news.google.com; " +
     "base-uri 'self'; form-action 'self'",
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 };
