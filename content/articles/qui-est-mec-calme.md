@@ -4,7 +4,7 @@ description: "Créateur de contenu togolais basé à Lomé, Mec Calme partage de
 date: 2026-10-08
 category: "Confiance"
 tags: "mec calme, créateur, présentation, confiance, mindset"
-image: "/assets/img/covers/confiance.svg"
+image: "/assets/img/articles/mec-calme-16x9.jpg"
 featured: true
 ---
 
