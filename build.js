@@ -149,9 +149,10 @@ function websiteLd() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: site.name,
-    url: SITE_URL,
+    alternateName: ['Mec Calme', 'mec calme 0'],
+    url: SITE_URL + '/',
     inLanguage: site.language,
-    publisher: { '@type': 'Organization', name: site.name, url: SITE_URL },
+    publisher: { '@type': 'Organization', name: site.name, url: SITE_URL + '/' },
   };
 }
 
