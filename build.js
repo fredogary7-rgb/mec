@@ -750,6 +750,38 @@ function contactPage() {
   });
 }
 
+function soutienPage() {
+  const paypalSdk = '<script src="https://www.paypal.com/sdk/js?client-id=BAAxzUhzOi6zXbs3gcQ-9QobiCgkGXJe0bZt8Adb4Pnn__lAeTOi3ElGEbq2Ba5AkyvjhcIRtKA8SFKbc8&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>';
+  const paypalButton = '<div id="paypal-container-Y54VTFCLXVBNN" class="paypal-container"></div>' +
+    '<script nonce="' + NONCE + '">paypal.HostedButtons({ hostedButtonId: "Y54VTFCLXVBNN" }).render("#paypal-container-Y54VTFCLXVBNN");</script>';
+
+  const content = pageHero(
+    "Soutenez Mec Calme",
+    "Votre soutien m'aide à créer plus de contenu sur la confiance, la séduction subtile et le mindset.",
+    [{ label: "Accueil", href: "/" }, { label: "Soutien" }]
+  ) + `<section class="section"><div class="container support-container"><div class="support-card">
+    <h2>Me soutenir 💛</h2>
+    <p class="muted">Chaque contribution, même petite, m'encourage à produire plus de contenus de qualité. Vous choisissez librement le montant.</p>
+    <div class="support-note">
+      <strong>💡 Comment ça marche :</strong>
+      <ul>
+        <li>Cliquez sur le bouton PayPal ci-dessous</li>
+        <li>Choisissez le montant de votre choix</li>
+        <li>Payez par PayPal ou carte bancaire</li>
+      </ul>
+    </div>
+    ${paypalButton}
+  </div></div></section>`;
+
+  return layout({
+    title: "Soutien",
+    description: "Soutenez Mec Calme : faites un don libre pour encourager la création de contenu.",
+    canonical: absUrl("/soutien/"),
+    active: "/soutien/",
+    content: paypalSdk + content,
+  });
+}
+
 function notFoundPage() {
   const content = `<section class="section">
     <div class="container notfound">
@@ -778,6 +810,7 @@ function sitemapXml() {
     { loc: SITE_URL + '/annonces/' },
     { loc: SITE_URL + '/a-propos/' },
     { loc: SITE_URL + '/contact/' },
+    { loc: SITE_URL + '/soutien/' },
   ];
   categories.forEach((c) => urls.push({ loc: SITE_URL + '/categorie/' + categorySlug(c) + '/' }));
   articles.forEach((a) => urls.push({ loc: SITE_URL + postUrl(a), lastmod: a.date }));
@@ -852,6 +885,7 @@ function build() {
   writeFile('annonces/index.html', annoncesPage());
   writeFile('a-propos/index.html', aboutPage());
   writeFile('contact/index.html', contactPage());
+  writeFile('soutien/index.html', soutienPage());
   writeFile('404.html', notFoundPage());
 
   articles.forEach((a) => writeFile('articles/' + a.slug + '/index.html', articlePage(a)));

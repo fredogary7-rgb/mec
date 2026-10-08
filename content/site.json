@@ -38,6 +38,7 @@
     { "label": "Articles", "href": "/articles/" },
     { "label": "Annonces", "href": "/annonces/" },
     { "label": "À propos", "href": "/a-propos/" },
-    { "label": "Contact", "href": "/contact/" }
+    { "label": "Contact", "href": "/contact/" },
+    { "label": "Soutien", "href": "/soutien/" }
   ]
 }
