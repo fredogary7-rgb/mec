@@ -513,7 +513,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .support-note ul { margin: 10px 0 0 20px; list-style: disc; }
 .support-note li { margin-bottom: 6px; }
-.paypal-btn { font-size: 1.05rem; padding: 14px 28px; }
+.paypal-container { min-height: 150px; }
 
 /* --- Accessibilité -------------------------------------------------------- */
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

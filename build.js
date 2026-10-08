@@ -751,8 +751,9 @@ function contactPage() {
 }
 
 function soutienPage() {
-  const paypalLink = 'https://www.paypal.com/ncp/payment/Y54VTFCLXVBNN';
-  const paypalButton = '<a class="btn btn-primary paypal-btn" href="' + paypalLink + '" target="_blank" rel="noopener">Soutenir via PayPal ' + SVG.arrow + '</a>';
+  const paypalSdk = '<script src="https://www.paypal.com/sdk/js?client-id=BAAxzUhzOi6zXbs3gcQ-9QobiCgkGXJe0bZt8Adb4Pnn__lAeTOi3ElGEbq2Ba5AkyvjhcIRtKA8SFKbc8&amp;components=hosted-buttons&amp;disable-funding=venmo&amp;currency=USD"></script>';
+  const paypalButton = '<div id="paypal-container-Y54VTFCLXVBNN" class="paypal-container"></div>' +
+    '<script nonce="' + NONCE + '">paypal.HostedButtons({ hostedButtonId: "Y54VTFCLXVBNN" }).render("#paypal-container-Y54VTFCLXVBNN");</script>';
 
   const content = pageHero(
     "Soutenez Mec Calme",
@@ -770,7 +771,7 @@ function soutienPage() {
       </ul>
     </div>
     ${paypalButton}
-    <p class="form-hint muted">Vous serez redirigé vers PayPal pour finaliser votre don.</p>
+    <p class="form-hint muted">Paiement sécurisé via PayPal (montant libre).</p>
   </div></div></section>`;
 
   return layout({
@@ -778,7 +779,7 @@ function soutienPage() {
     description: "Soutenez Mec Calme : faites un don libre pour encourager la création de contenu.",
     canonical: absUrl("/soutien/"),
     active: "/soutien/",
-    content: content,
+    content: paypalSdk + content,
   });
 }
 
