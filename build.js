@@ -794,7 +794,7 @@ function swgScript() {
 function termsPage() {
   const content = pageHero("Conditions d'utilisation", '', [{ label: "Accueil", href: "/" }, { label: "Conditions d'utilisation" }]) +
     `<section class="section"><div class="container article-container"><div class="article-body">
-      <p><em>Dernière mise à jour : 8 octobre 2026</em></p>
+      <p><em>Dernière mise à jour : 10 octobre 2026</em></p>
       <h2>1. Présentation</h2>
       <p>Le site <strong>meccalme0.com</strong> est édité par Mec Calme, créateur de contenu basé à Lomé (Togo). Il présente des articles et contenus sur la confiance en soi, la séduction subtile et le mindset.</p>
       <h2>2. Contenu</h2>
@@ -818,7 +818,7 @@ function termsPage() {
 function privacyPage() {
   const content = pageHero("Politique de confidentialité", '', [{ label: "Accueil", href: "/" }, { label: "Politique de confidentialité" }]) +
     `<section class="section"><div class="container article-container"><div class="article-body">
-      <p><em>Dernière mise à jour : 8 octobre 2026</em></p>
+      <p><em>Dernière mise à jour : 10 octobre 2026</em></p>
       <h2>1. Données collectées</h2>
       <p>Le site Mec Calme (meccalme0.com) ne collecte aucune donnée personnelle directement. Aucun formulaire ne stocke d'informations sur ce site.</p>
       <h2>2. Services tiers</h2>

@@ -1,7 +1,7 @@
 ---
 title: "Qui est Mec Calme ? Découvrez le créateur qui inspire confiance et mindset"
 description: "Créateur de contenu togolais basé à Lomé, Mec Calme partage des conseils sur la confiance en soi, la séduction subtile et le mindset. Découvrez son histoire et sa philosophie."
-date: 2026-10-08
+date: 2026-10-10
 category: "Confiance"
 tags: "mec calme, créateur, présentation, confiance, mindset"
 image: "/assets/img/articles/mec-calme-16x9.jpg"

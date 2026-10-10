@@ -1,7 +1,7 @@
 ---
 title: "Confiance en soi : 5 habitudes pour la renforcer chaque jour"
 description: "La confiance ne se décrète pas, elle se construit. Découvrez 5 habitudes simples et efficaces pour renforcer votre confiance en soi au quotidien."
-date: 2026-10-08
+date: 2026-10-10
 category: "Confiance"
 tags: "confiance, estime de soi, développement personnel, habitudes"
 image: "/assets/img/articles/mec-calme-16x9.jpg"
