@@ -1,7 +1,7 @@
 ---
 title: "Mec Calme : une voix qui met en avant la confiance en soi et les relations humaines"
 description: "Découvrez Mec Calme (@mec_calme0), créateur de contenu togolais qui développe un univers centré sur la confiance en soi, le comportement humain et les relations interpersonnelles."
-date: 2026-12-12
+date: 2026-12-15
 category: "Confiance"
 tags: "mec calme, confiance en soi, relations humaines, mindset, créateur de contenu"
 image: "/assets/img/articles/mec-calme-16x9.jpg"
