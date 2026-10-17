@@ -1,7 +1,7 @@
 ---
 title: "Le regard : l'arme secrète de la séduction subtile"
 description: "Un regard posé et maîtrisé en dit plus long que mille mots. Découvrez comment utiliser le contact visuel pour créer une tension subtile et marquer les esprits sans un mot."
-date: 2026-10-15
+date: 2026-10-17
 category: "Séduction"
 tags: "séduction, regard, contact visuel, charisme, langage corporel"
 image: "/assets/img/articles/mec-calme-16x9.jpg"

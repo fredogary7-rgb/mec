@@ -1,7 +1,7 @@
 ---
 title: "Le calme qui rassure : comment inspirer confiance sans un mot"
 description: "Quand tout s'agite autour de vous, votre calme devient une force rassurante. Découvrez comment rester posé et apaiser les autres par votre seule présence."
-date: 2026-10-15
+date: 2026-10-17
 category: "Confiance"
 tags: "calme, sérénité, confiance, apaisement, gestion du stress"
 image: "/assets/img/articles/mec-calme-16x9-discret.jpg"
