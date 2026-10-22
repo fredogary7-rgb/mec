@@ -870,7 +870,8 @@ function mePage() {
 <div class="me-bg" aria-hidden="true"></div>
 <button class="me-share" id="meShare" aria-label="Partager" type="button">${shareIcon}</button>
 <main id="main">${content}</main>
-<script>(function(){var b=document.getElementById("meShare");if(!b)return;var orig=b.innerHTML;function ok(){b.textContent="Copié !";setTimeout(function(){b.innerHTML=orig;},1500);}function legacyCopy(t){var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.top="-9999px";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,99999);var r=false;try{r=document.execCommand("copy");}catch(e){r=false;}document.body.removeChild(ta);return r;}b.addEventListener("click",function(){var u=window.location.href;if(navigator.share){navigator.share({title:"Mec Calme",url:u}).catch(function(){});}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok).catch(function(){if(legacyCopy(u))ok();});}else{if(legacyCopy(u))ok();}});})();</script>
+<script>(function(){var b=document.getElementById("meShare");if(!b)return;var orig=b.innerHTML;b.addEventListener("click",function(){var u=window.location.href;if(navigator.share){navigator.share({title:"Mec Calme",url:u}).catch(function(){});}else{b.textContent="HTTPS requis";setTimeout(function(){b.innerHTML=orig;},1600);}});})();</script>
+<script>(function(){document.addEventListener("gesturestart",function(e){e.preventDefault();});document.addEventListener("touchmove",function(e){if(e.touches.length>1){e.preventDefault();}},{passive:false});document.addEventListener("dblclick",function(e){e.preventDefault();},{passive:false});})();</script>
 </body>
 </html>`;
 }

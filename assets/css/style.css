@@ -551,7 +551,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* --- Page /me (lien en bio, style Linktree) ------------------------------ */
 .me-page { min-height: 100vh; }
-.me-page, .me-page a, .me-page button { touch-action: manipulation; }
+.me-page, .me-page a, .me-page button { touch-action: pan-y; }
 .me-bg {
   position: fixed;
   inset: 0;
