@@ -1,7 +1,7 @@
 ---
 title: "Nouveau contenu à venir sur mes réseaux"
 description: "De nouveaux contenus arrivent bientôt sur TikTok, Instagram et YouTube : confiance en soi, séduction subtile et mindset. Restez connectés."
-date: 2026-10-17
+date: 2026-10-21
 type: "annonce"
 ---
 
