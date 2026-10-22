@@ -208,6 +208,9 @@ function socialIcon(key) {
     youtube: '<path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/>',
     x: '<path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/>',
     tiktok: '<path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>',
+    threads: '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>',
+    snapchat: '<path d="M12 2c2.93 0 5.65 1.93 6.42 4.63l1.06 3.63c.17.57-.05 1.18-.5 1.56-.46.38-1.1.5-1.66.31l-.86-.28c-.4 1.26-1.1 2.4-2.06 3.3l.3 2.2c.1.75-.42 1.44-1.16 1.55-.3.05-.6 0-.84-.14l-1.37-.77c-.35-.2-.78-.2-1.13 0l-1.37.77c-.24.13-.53.19-.84.14-.74-.11-1.26-.8-1.16-1.55l.3-2.2c-.96-.9-1.66-2.04-2.06-3.3l-.86.28c-.56.19-1.2.07-1.66-.31-.45-.38-.67-.99-.5-1.56l1.06-3.63C6.35 3.93 9.07 2 12 2z"/>',
+    email: '<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>',
   };
   const p = paths[key];
   if (p) return '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">' + p + '</svg>';
@@ -786,6 +789,72 @@ function soutienPage() {
   });
 }
 
+function mePage() {
+  const links = [
+    { label: 'Instagram', handle: SOCIAL_HANDLES.instagram, url: site.social.instagram, bg: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)', key: 'instagram', dark: false },
+    { label: 'TikTok', handle: SOCIAL_HANDLES.tiktok, url: site.social.tiktok, bg: '#010101', key: 'tiktok', dark: false },
+    { label: 'YouTube', handle: SOCIAL_HANDLES.youtube, url: site.social.youtube, bg: '#ff0000', key: 'youtube', dark: false },
+    { label: 'Threads', handle: SOCIAL_HANDLES.threads, url: site.social.threads, bg: '#000000', key: 'threads', dark: false },
+    { label: 'X (Twitter)', handle: SOCIAL_HANDLES.x, url: site.social.x, bg: '#000000', key: 'x', dark: false },
+    { label: 'Facebook', handle: SOCIAL_HANDLES.facebook, url: site.social.facebook, bg: '#1877f2', key: 'facebook', dark: false },
+    { label: 'Snapchat', handle: SOCIAL_HANDLES.snapchat, url: site.social.snapchat, bg: '#fffc00', key: 'snapchat', dark: true },
+    { label: 'Email', handle: site.email, url: 'mailto:' + site.email, bg: '#64748b', key: 'email', dark: false },
+  ];
+
+  const linkHtml = links.map((l) => {
+    const isMail = l.url.indexOf('mailto:') === 0;
+    const attrs = isMail ? '' : ' target="_blank" rel="noopener noreferrer"';
+    const iconClass = 'me-icon' + (l.dark ? ' me-icon--dark' : '');
+    return '<a class="me-link" href="' + e(l.url) + '"' + attrs + '>' +
+      '<span class="' + iconClass + '" style="background:' + l.bg + '">' + socialIcon(l.key) + '</span>' +
+      '<span class="me-meta"><strong>' + e(l.label) + '</strong><small>' + e(l.handle) + '</small></span>' +
+      '</a>';
+  }).join('');
+
+  const content = `
+  <section class="me-hero">
+    <div class="me-overlay" aria-hidden="true"></div>
+    <div class="me-inner">
+      <img class="me-avatar" src="/assets/img/logo.png" alt="${e(site.name)}" width="96" height="96">
+      <h1 class="me-name">${e(site.name)}</h1>
+      <p class="me-handle">@mec_calme0</p>
+      <p class="me-bio">${e(site.tagline)}.<br>${e(site.slogan)} 🇹🇬</p>
+      <div class="me-links">${linkHtml}</div>
+      <div class="me-foot"><a href="/">Site officiel ${SVG.arrow}</a></div>
+    </div>
+  </section>`;
+
+  return `<!DOCTYPE html>
+<html lang="${site.language}" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mec Calme — Liens</title>
+<meta name="description" content="${e(site.tagline + ' Retrouvez tous mes liens : TikTok, Instagram, YouTube, X, Facebook, Threads et Snapchat.')}">
+<link rel="canonical" href="${e(SITE_URL + '/me/')}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0e1116">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${e(site.name)}">
+<meta property="og:title" content="Mec Calme — Liens">
+<meta property="og:description" content="${e(site.tagline)}">
+<meta property="og:url" content="${e(SITE_URL + '/me/')}">
+<meta property="og:image" content="${e(absUrl('/assets/img/articles/mec-calme-16x9.jpg'))}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@mec_calme0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="me-page">
+<main id="main">${content}</main>
+</body>
+</html>`;
+}
+
 function swgScript() {
   return `<script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
 <script>(self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => { basicSubscriptions.init({ type: "NewsArticle", isPartOfType: ["Product"], isPartOfProductId: "CAowlaXODA:openaccess", clientOptions: { theme: "light", lang: "fr" } }); });</script>`;
@@ -871,6 +940,7 @@ function sitemapXml() {
     { loc: SITE_URL + '/a-propos/' },
     { loc: SITE_URL + '/contact/' },
     { loc: SITE_URL + '/soutien/' },
+    { loc: SITE_URL + '/me/' },
     { loc: SITE_URL + '/conditions-utilisation/' },
     { loc: SITE_URL + '/politique-de-confidentialite/' },
   ];
@@ -951,6 +1021,7 @@ function build() {
   writeFile('conditions-utilisation/index.html', termsPage());
   writeFile('politique-de-confidentialite/index.html', privacyPage());
   writeFile('404.html', notFoundPage());
+  writeFile('me/index.html', mePage());
 
   articles.forEach((a) => writeFile('articles/' + a.slug + '/index.html', articlePage(a)));
   annonces.forEach((a) => writeFile('annonces/' + a.slug + '/index.html', annoncePage(a)));

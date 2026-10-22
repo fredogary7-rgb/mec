@@ -549,6 +549,88 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 
+/* --- Page /me (lien en bio, style Linktree) ------------------------------ */
+.me-page { min-height: 100vh; }
+.me-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 20px;
+  background: url('/assets/img/articles/mec-calme.jpg') center/cover no-repeat;
+}
+.me-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 13, 18, 0.66) 0%, rgba(10, 13, 18, 0.86) 100%);
+}
+.me-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  color: #fff;
+}
+.me-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+}
+.me-name { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+.me-handle { color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; margin-bottom: 14px; }
+.me-bio { color: rgba(255, 255, 255, 0.92); font-size: 0.95rem; line-height: 1.55; }
+.me-links { display: flex; flex-direction: column; gap: 13px; margin-top: 28px; }
+.me-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #14181f;
+  padding: 13px 16px;
+  border-radius: 16px;
+  text-align: left;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.me-link:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35); color: #14181f; }
+.me-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.me-icon svg { width: 22px; height: 22px; }
+.me-icon--dark { color: #14181f; }
+.me-meta { display: flex; flex-direction: column; min-width: 0; }
+.me-meta strong { font-size: 1rem; font-weight: 600; }
+.me-meta small { font-size: 0.82rem; color: #5c6570; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.me-foot { margin-top: 28px; }
+.me-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+.me-foot a:hover { background: rgba(255, 255, 255, 0.22); color: #fff; }
+
 
 
 
