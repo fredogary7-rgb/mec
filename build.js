@@ -811,15 +811,32 @@ function mePage() {
       '</a>';
   }).join('');
 
+  const socials = [
+    { label: 'Instagram', url: site.social.instagram, bg: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)', key: 'instagram', dark: false },
+    { label: 'TikTok', url: site.social.tiktok, bg: '#010101', key: 'tiktok', dark: false },
+    { label: 'YouTube', url: site.social.youtube, bg: '#ff0000', key: 'youtube', dark: false },
+    { label: 'Threads', url: site.social.threads, bg: '#000000', key: 'threads', dark: false },
+    { label: 'X (Twitter)', url: site.social.x, bg: '#000000', key: 'x', dark: false },
+    { label: 'Facebook', url: site.social.facebook, bg: '#1877f2', key: 'facebook', dark: false },
+    { label: 'Snapchat', url: site.social.snapchat, bg: '#fffc00', key: 'snapchat', dark: true },
+  ];
+
+  const socialsHtml = socials.map((s) => {
+    const cls = 'me-soc' + (s.dark ? ' me-soc--dark' : '');
+    return '<a class="' + cls + '" href="' + e(s.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + e(s.label) + '" style="background:' + s.bg + '">' + socialIcon(s.key) + '</a>';
+  }).join('');
+
+  const shareIcon = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>';
+
   const content = `
   <section class="me-hero">
-    <div class="me-overlay" aria-hidden="true"></div>
     <div class="me-inner">
       <img class="me-avatar" src="/assets/img/logo.png" alt="${e(site.name)}" width="96" height="96">
       <h1 class="me-name">${e(site.name)}</h1>
       <p class="me-handle">@mec_calme0</p>
       <p class="me-bio">${e(site.tagline)}.<br>${e(site.slogan)} 🇹🇬</p>
       <div class="me-links">${linkHtml}</div>
+      <div class="me-socials">${socialsHtml}</div>
       <div class="me-foot"><a href="/">Site officiel ${SVG.arrow}</a></div>
     </div>
   </section>`;
@@ -828,7 +845,7 @@ function mePage() {
 <html lang="${site.language}" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Mec Calme — Liens</title>
 <meta name="description" content="${e(site.tagline + ' Retrouvez tous mes liens : TikTok, Instagram, YouTube, X, Facebook, Threads et Snapchat.')}">
 <link rel="canonical" href="${e(SITE_URL + '/me/')}">
@@ -850,7 +867,10 @@ function mePage() {
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="me-page">
+<div class="me-bg" aria-hidden="true"></div>
+<button class="me-share" id="meShare" aria-label="Partager" type="button">${shareIcon}</button>
 <main id="main">${content}</main>
+<script>(function(){var b=document.getElementById("meShare");if(!b)return;var orig=b.innerHTML;function ok(){b.textContent="Copié !";setTimeout(function(){b.innerHTML=orig;},1500);}function legacyCopy(t){var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.top="-9999px";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,99999);var r=false;try{r=document.execCommand("copy");}catch(e){r=false;}document.body.removeChild(ta);return r;}b.addEventListener("click",function(){var u=window.location.href;if(navigator.share){navigator.share({title:"Mec Calme",url:u}).catch(function(){});}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok).catch(function(){if(legacyCopy(u))ok();});}else{if(legacyCopy(u))ok();}});})();</script>
 </body>
 </html>`;
 }

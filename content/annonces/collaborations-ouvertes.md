@@ -16,7 +16,7 @@ Vous êtes une **marque**, un **créateur** ou une **entreprise** ? Les collabor
 ## Me contacter
 
 - 📱 WhatsApp : **+228 71 33 93 25**
-- ✉️ Email : **contact@meccalme0.com**
+- ✉️ Email : **ameket4@gmail.com**
 
 > Travaillons ensemble pour créer quelque chose de grand.
 

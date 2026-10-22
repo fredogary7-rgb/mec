@@ -551,19 +551,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* --- Page /me (lien en bio, style Linktree) ------------------------------ */
 .me-page { min-height: 100vh; }
+.me-page, .me-page a, .me-page button { touch-action: manipulation; }
+.me-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 13, 18, 0.66) 0%, rgba(10, 13, 18, 0.86) 100%),
+    url('/assets/img/articles/mec-calme.jpg') center/cover no-repeat;
+}
 .me-hero {
   position: relative;
+  z-index: 1;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 56px 20px;
-  background: url('/assets/img/articles/mec-calme.jpg') center/cover no-repeat;
-}
-.me-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10, 13, 18, 0.66) 0%, rgba(10, 13, 18, 0.86) 100%);
 }
 .me-inner {
   position: relative;
@@ -630,6 +634,41 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 0.2s ease;
 }
 .me-foot a:hover { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.me-share {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.me-share:hover { background: rgba(255, 255, 255, 0.26); transform: translateY(-1px); }
+.me-share svg { width: 18px; height: 18px; }
+.me-socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.me-soc {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.me-soc:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); }
+.me-soc svg { width: 19px; height: 19px; }
+.me-soc--dark { color: #14181f; }
 
 
 
